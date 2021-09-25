@@ -1,3 +1,4 @@
+/*
 package com.learning.springboot.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,4 +38,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		return new BCryptPasswordEncoder();
 	}
 	
-}
+}*/

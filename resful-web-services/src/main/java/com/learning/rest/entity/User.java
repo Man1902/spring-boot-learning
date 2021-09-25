@@ -1,20 +1,15 @@
 package com.learning.rest.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class UserVO {
+@Data
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
@@ -22,4 +17,16 @@ public class UserVO {
     private String userName;
 
     private Date dateOfBirth;
+
+    @OneToMany(mappedBy = "user")
+    private List<Post> posts;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                '}';
+    }
 }

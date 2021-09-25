@@ -1,21 +1,15 @@
-package com.learning.rest.entity;
+package com.learning.rest.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.learning.rest.entity.User;
 import lombok.Data;
-import net.minidev.json.annotate.JsonIgnore;
 
-import javax.persistence.*;
-
-@Entity
 @Data
-public class Post {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class PostDTO {
     private Long postId;
 
     private String description;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="user_id", nullable=false)
     @JsonIgnore
     private User user;
 }

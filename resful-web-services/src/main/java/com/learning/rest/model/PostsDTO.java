@@ -2,11 +2,10 @@ package com.learning.rest.model;
 
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
-public class PostDTO {
-    private Long postId;
-
-    private String description;
-
-    private Long userId;
+public class PostsDTO {
+    private List<PostDTO> posts = new ArrayList<>();
 }

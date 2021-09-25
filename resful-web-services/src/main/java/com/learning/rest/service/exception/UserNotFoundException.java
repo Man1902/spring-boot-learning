@@ -1,6 +1,15 @@
 package com.learning.rest.service.exception;
 
-public class UserNotFoundException {
-    public UserNotFoundException(String user_not_found) {
+import lombok.Getter;
+import org.springframework.http.HttpStatus;
+
+@Getter
+public class UserNotFoundException extends Exception {
+    private String errorMessage;
+    private HttpStatus statusCode = HttpStatus.NOT_FOUND;
+
+    public UserNotFoundException(String errorMessage) {
+        super(errorMessage);
+        this.errorMessage = errorMessage;
     }
 }
